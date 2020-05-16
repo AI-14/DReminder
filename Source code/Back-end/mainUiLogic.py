@@ -173,6 +173,9 @@ class ShowReminder(QThread):
                 c = datetime(int(current_year), int(current_month), int(current_date), int(current_hours),
                              int(current_minutes))
                 num_of_secs = (r - c).total_seconds() # Getting the total number of seconds between the current time and reminder's time.
+                if num_of_secs < 0:
+                    sentinel = False
+                    break
                 sleep(num_of_secs)
 
                 # showing the notification
