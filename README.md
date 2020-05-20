@@ -10,5 +10,5 @@
 ![](Screenshots/2.png)
 
 ## How to create a .exe file?
-You can use **cx_feeeze** python module for creating a .exe file. For more info, check YouTube tutorials.
+You can use **cx_freeze** python module for creating a .exe file. For more info, check YouTube tutorials.
 
