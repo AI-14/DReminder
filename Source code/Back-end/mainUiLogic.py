@@ -25,7 +25,7 @@ class MainWindowFunctionality(qtw.QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.show_reminder = ShowReminder()
-        self.list_of_reminders = []  # A list to store all components of the reminders in the form of a tuple.
+        self.list_of_reminders = []  #A list to store all components of the reminders in the form of a tuple.
         self.ui.list_widget.addItem('Reminder Titles:')
         self.ui.list_widget.setSelectionMode(qtw.QAbstractItemView.SingleSelection)
         self.ui.add_reminder_button.clicked.connect(self.add_reminder)
@@ -52,16 +52,16 @@ class MainWindowFunctionality(qtw.QMainWindow):
             error_msg.setStandardButtons(qtw.QMessageBox.Ok)
             error_msg.exec_()
         else:
-            r_date, r_month, r_year = self.ui.date_edit.date().day(), self.ui.date_edit.date().month(), self.ui.date_edit.date().year()  # Getting the date of reminder.
+            r_date, r_month, r_year = self.ui.date_edit.date().day(), self.ui.date_edit.date().month(), self.ui.date_edit.date().year()  #Getting the date of reminder.
             date_format = f'{str(r_date)}-{str(r_month)}-{str(r_year)}'
 
-            r_hour, r_minutes = self.ui.time_edit.time().hour(), self.ui.time_edit.time().minute()  # Getting the time of reminder.
+            r_hour, r_minutes = self.ui.time_edit.time().hour(), self.ui.time_edit.time().minute()  #Getting the time of reminder.
             if r_hour in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]:
                 r_hour = '0' + str(r_hour)
             time_format = f'{str(r_hour)}:{str(r_minutes)}'
 
-            msg_title = self.ui.line_edit.text()  # Getting the title of the remainder.
-            msg_content = self.ui.text_edit.toPlainText()  # Getting the content of the reminder.
+            msg_title = self.ui.line_edit.text()  #Getting the title of the remainder.
+            msg_content = self.ui.text_edit.toPlainText()  #Getting the content of the reminder.
 
             if self.check_duplicate_title(msg_title):
                 error_msg_dup = qtw.QMessageBox()
@@ -72,11 +72,11 @@ class MainWindowFunctionality(qtw.QMainWindow):
                 error_msg_dup.exec_()
             else:
                 reminder = Reminders(date_format, time_format, msg_title, msg_content)
-                self.list_of_reminders.append(reminder.get_tuple()) # Adding a tuple so that heap sorts the reminders based on date and time.
-                heapq.heapify(self.list_of_reminders)  # Using heapq for maintaining the order of the reminders based on date and time.
+                self.list_of_reminders.append(reminder.get_tuple()) #Adding a tuple so that heap sorts the reminders based on date and time.
+                heapq.heapify(self.list_of_reminders)  #Using heapq for maintaining the order of the reminders based on date and time.
                 self.ui.list_widget.clear()
 
-                # Displaying on the list in sorted order.
+                #Displaying on the list in sorted order.
                 self.ui.list_widget.addItem('Reminder Titles:')
                 for item in self.list_of_reminders:
                     self.ui.list_widget.addItem(item[2])
@@ -99,7 +99,7 @@ class MainWindowFunctionality(qtw.QMainWindow):
         """
         sel_rows = self.ui.list_widget.selectedIndexes()
         sel_items_text = [x.text() for x in self.ui.list_widget.selectedItems()]
-        dict_of_row_item = {k: v.row() for (k, v) in zip(sel_items_text, sel_rows)}  # Using dict comprehension.
+        dict_of_row_item = {k: v.row() for (k, v) in zip(sel_items_text, sel_rows)}  #Using dictionary comprehension.
 
         for item in self.list_of_reminders:
             if item[2] in sel_items_text:
@@ -115,7 +115,7 @@ class MainWindowFunctionality(qtw.QMainWindow):
         self.ui.list_widget.clear()
         self.list_of_reminders.clear()
         self.ui.list_widget.addItem('Reminder Titles:')
-        self.show_reminder.quit()  # Terminating the thread that notifies the user of the reminder.
+        self.show_reminder.quit()  #Terminating the thread that notifies the user of the reminder.
 
     def remind_me(self):
         """
@@ -139,7 +139,7 @@ class MainWindowFunctionality(qtw.QMainWindow):
             self.show_reminder.start()
 
 
-# This class is responsible for showing the toast notification.
+#This class is responsible for showing the toast notification.
 class ShowReminder(QThread):
     def __init__(self):
         """
@@ -172,7 +172,7 @@ class ShowReminder(QThread):
                              int(time_minutes))
                 c = datetime(int(current_year), int(current_month), int(current_date), int(current_hours),
                              int(current_minutes))
-                num_of_secs = (r - c).total_seconds() # Getting the total number of seconds between the current time and reminder's time.
+                num_of_secs = (r - c).total_seconds() #Getting the total number of seconds between the current time and reminder's time.
                 if num_of_secs < 0:
                     sentinel = False
                     self.list_widget.takeItem(1)
@@ -183,13 +183,13 @@ class ShowReminder(QThread):
                 notifier = ToastNotifier()
                 notifier.show_toast(item[2], item[3], duration=30, threaded=False)
                 heapq.heappop(self.reminder_list)
-                self.list_widget.takeItem(1) # Removing the reminder that was notified from the list widget.
-                if len(self.reminder_list) == 0: # Condition to break out of the loop if all reminders are notified.
+                self.list_widget.takeItem(1) #Removing the reminder that was notified from the list widget.
+                if len(self.reminder_list) == 0: #Condition to break out of the loop if all reminders are notified.
                     sentinel = False
 
 
 
-# STARTING THE APPLICATION
+#STARTING THE APPLICATION
 if __name__ == '__main__':
     app = qtw.QApplication([])
     win = MainWindowFunctionality()
