@@ -1,6 +1,6 @@
 __author__ = 'Amaan Izhar'
 
-# This is the model class we are going to use for reminders.
+#This is the model class we are going to use for reminders.
 class Reminders:
     def __init__(self, date_of_reminder='No date', time_of_reminder='No time', title='No title', content='No content'):
         """
