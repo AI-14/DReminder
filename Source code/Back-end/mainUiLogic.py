@@ -175,9 +175,9 @@ class ShowReminder(QThread):
                              int(current_minutes))
                 num_of_secs = (r - c).total_seconds() #Getting the total number of seconds between the current time and reminder's time.
                 if num_of_secs < 0:
-                    sentinel = False
                     self.list_widget.takeItem(1)
-                    break
+                    heapq.heappop(self.reminder_list)
+                    continue
                 sleep(num_of_secs)
 
                 # showing the notification
