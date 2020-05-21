@@ -83,6 +83,8 @@ class MainWindowFunctionality(qtw.QMainWindow):
 
                 self.ui.line_edit.clear()
                 self.ui.text_edit.clear()
+                self.ui.time_edit.setMinimumTime(QtCore.QTime.currentTime())
+                self.ui.date_edit.setMinimumDate(QtCore.QDate.currentDate())
 
     def check_duplicate_title(self, msg_title):
         """
