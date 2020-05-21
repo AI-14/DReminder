@@ -6,8 +6,8 @@
   or by using **subprocess** python module.
   
 ## Screenshots of the application
-![](Screenshots/s1.png)
-![](Screenshots/s2.png)
+![](screenshots/1.png)
+![](screenshots/2.png)
 
 ## How to create a .exe file?
 >**Note:** *Install the modules/frameworks/libraries that these scripts are using if you do not have them already. It is better to copy all of them in your project folder.*
@@ -23,7 +23,7 @@ from cx_Freeze import setup, Executable
 setup(name='DReminder',
       version='1.0',
       description='An application that sends toast notifications on desktop.',
-      executables=[Executable('mainUi_logic.py', base='Win32GUI')])
+      executables=[Executable('mainUiLogic.py', base='Win32GUI')])
 ````
 
 Step 3: Go to your project folder and open **cmd**. Type the following command:
