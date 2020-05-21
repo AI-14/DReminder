@@ -58,6 +58,8 @@ class MainWindowFunctionality(qtw.QMainWindow):
             r_hour, r_minutes = self.ui.time_edit.time().hour(), self.ui.time_edit.time().minute()  #Getting the time of reminder.
             if r_hour in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]:
                 r_hour = '0' + str(r_hour)
+            if r_minutes in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]:
+                r_minutes = '0' + str(r_minutes)
             time_format = f'{str(r_hour)}:{str(r_minutes)}'
 
             msg_title = self.ui.line_edit.text()  #Getting the title of the remainder.
