@@ -79,7 +79,7 @@ class MainWindowFunctionality(qtw.QMainWindow):
                 #Displaying on the list in sorted order.
                 self.ui.list_widget.addItem('Reminder Titles:')
                 for item in self.list_of_reminders:
-                    self.ui.list_widget.addItem(item[2])
+                    self.ui.list_widget.addItem(item[2] + ' on ' + item[0] + ' @' + item[1])
 
                 self.ui.line_edit.clear()
                 self.ui.text_edit.clear()
@@ -97,14 +97,13 @@ class MainWindowFunctionality(qtw.QMainWindow):
         """
             Method to delete the reminders from the list.
         """
-        sel_rows = self.ui.list_widget.selectedIndexes()
-        sel_items_text = [x.text() for x in self.ui.list_widget.selectedItems()]
-        dict_of_row_item = {k: v.row() for (k, v) in zip(sel_items_text, sel_rows)}  #Using dictionary comprehension.
+        sel_row = self.ui.list_widget.selectedIndexes()
+        x = self.ui.list_widget.selectedItems()
+        sel_item_text = x[0].text()
 
         for item in self.list_of_reminders:
-            if item[2] in sel_items_text:
-                row = dict_of_row_item[item[2]]
-                self.ui.list_widget.takeItem(row)
+            if item[2] in sel_item_text:
+                self.ui.list_widget.takeItem(sel_row[0].row())
                 self.list_of_reminders.remove(item)
 
 
