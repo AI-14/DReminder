@@ -36,7 +36,7 @@ Step 4: Now in your project folder, go to **build->exe.win32-3.6** and you will 
 Now you can click on this .exe file or create a shortcut and give it 
 any name you want.
 
-Final step: Enjoy the app! Now you can download songs from YouTube without going to online websites with soo many ads and popups. One click and you get all the songs.
+Final step: Enjoy the app! Now you can use this app as a desktop reminder.
 
 >**Note:** *If you get any errors, then try looking at YouTube videos on how to use **cx_Freeze** module.*
 
