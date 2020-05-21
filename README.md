@@ -6,8 +6,8 @@
   or by using [subprocess] python module.
   
 ## Screenshots of the application
-![](Screenshots/1.png)
-![](Screenshots/2.png)
+![](Screenshots/s1.png)
+![](Screenshots/s2.png)
 
 ## How to create a .exe file?
 You can use **cx_Freeze** python module for creating a .exe file. For more info, check YouTube tutorials.
