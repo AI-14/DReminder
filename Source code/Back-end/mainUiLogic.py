@@ -7,6 +7,7 @@ __author__ = 'Amaan Izhar'
 
 from PyQt5 import QtWidgets as qtw
 from PyQt5.QtCore import QThread
+from PyQt5 import QtCore
 from mainUi import Ui_MainWindow
 from win10toast import ToastNotifier
 from datetime import date, datetime
