@@ -17,6 +17,8 @@ pip install win10toast
 pip install typing-extensions
 pip install cx-Freeze
 ````
+>**Note:** ***venv** should be created in this repo.*
+
 *Now follow these steps*
 
 Step 1: Run the scripts to check if they are working properly.
