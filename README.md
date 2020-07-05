@@ -5,7 +5,7 @@
   about anything that you (the user) want. Moreover, you can run this application as a background process using the task manager
   or by using **subprocess** python module.
   
-## Screenshots of the application
+## Screenshots of the Application
 ![](screenshots/1.png)
 ![](screenshots/2.png)
 
