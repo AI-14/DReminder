@@ -5,11 +5,11 @@
   about anything that you (the user) want. Moreover, you can run this application as a background process using the task manager
   or by using **subprocess** python module.
   
-## Screenshots of the Application
+## Screenshots Of The Application
 ![](screenshots/1.png)
 ![](screenshots/2.png)
 
-## How to Create a .exe File?
+## How To Create A .exe File?
 Download this repository and create a virtual environment folder in the **cmd** using the command ````python -m venv venv````. Activate this venv using the command ````venv\Scripts\activate.bat```` and then install the following modules/packages:
 ````
 pip install PyQt5
