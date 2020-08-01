@@ -1,5 +1,6 @@
 # DReminder
   ![Python](https://img.shields.io/badge/-Python-black?style=flat&logo=python)
+  ![PyQt5](https://img.shields.io/badge/-PyQt5-black?style=flat&logo=qt)
   
 ## Description
   DReminder is an application that shows desktop toast notification on specified time/date. This can be used as a reminder
